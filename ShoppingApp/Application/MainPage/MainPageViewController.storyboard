@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,22 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaH-w6-gfF">
-                                <rect key="frame" x="159" y="408.66666666666669" width="75" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="T04-jV-bX1"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wOn-Og-7Kq" userLabel="ContainerView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wcs-4i-1oZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="exq-jU-bkI">
+                                            <size key="itemSize" width="128" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ProductsCollectionViewCell" id="Q18-Bo-TNj">
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1EU-Sx-EN2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Wcs-4i-1oZ" firstAttribute="leading" secondItem="wOn-Og-7Kq" secondAttribute="leading" id="cdD-hz-Vq4"/>
+                                    <constraint firstItem="Wcs-4i-1oZ" firstAttribute="top" secondItem="wOn-Og-7Kq" secondAttribute="top" id="gAE-Lz-bMB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wcs-4i-1oZ" secondAttribute="bottom" id="ugP-p1-qpO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wcs-4i-1oZ" secondAttribute="trailing" id="wuw-n1-sXp"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JaH-w6-gfF" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="6ny-9D-5fh"/>
-                            <constraint firstItem="JaH-w6-gfF" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="evC-Oa-01r"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wOn-Og-7Kq" secondAttribute="trailing" id="20H-aL-RY2"/>
+                            <constraint firstItem="wOn-Og-7Kq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="d42-Ek-cVg"/>
+                            <constraint firstItem="wOn-Og-7Kq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="dKS-Xh-Q5s"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="wOn-Og-7Kq" secondAttribute="bottom" id="fRE-Oi-3Er"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="productsCollectionView" destination="Wcs-4i-1oZ" id="VAF-9o-8U5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

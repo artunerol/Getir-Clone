@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailPageViewController: UIViewController {
+class DetailPageViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
