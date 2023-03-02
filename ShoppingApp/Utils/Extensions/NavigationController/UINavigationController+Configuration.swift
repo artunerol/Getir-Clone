@@ -8,7 +8,6 @@
 import UIKit
 
 extension UINavigationController {
-    
     func setViewControllers() {
         let viewControllersArray = ViewControllerBuilder.buildViewControllers()
         viewControllers = viewControllersArray

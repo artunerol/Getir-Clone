@@ -22,7 +22,11 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     }
     
     @IBOutlet var containerView: UIView!
-    @IBOutlet var productImageView: UIImageView!
+    @IBOutlet var productImageView: UIImageView! {
+        didSet {
+            productImageView.contentMode = .scaleAspectFit
+        }
+    }
     @IBOutlet var productPriceLabel: UILabel! {
         didSet {
             productPriceLabel.textColor = .appPurple
@@ -32,19 +36,18 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var productNameLabel: UILabel! {
         didSet {
+            productNameLabel.contentMode = .top
             productNameLabel.textColor = .black
             productNameLabel.font = UIFont.appRegularFont
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    func configureCell(with model: ProductsCollectionCellViewModel) {
-        productImageView.image = UIImage(named: "logo")
-        productPriceLabel.text = "215 TL"
+    func configureCell(with model: Product) {
+        let imageURLString = model.productImage + "?raw=true"
+        let imageURL = URL(string: imageURLString)
+        
+        productImageView.image(from: imageURL)
+        productPriceLabel.text = "\(model.productPrice.toString()) \(CurrenyCodeEnum.tl.unitCode())"
         productNameLabel.text = model.productName
     }
 }

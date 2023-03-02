@@ -31,6 +31,13 @@
 		839AC2AE29AEA10600B6A250 /* DetailPageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839AC2AD29AEA10600B6A250 /* DetailPageViewController.storyboard */; };
 		839AC2B029AEA15F00B6A250 /* ShoppingCartViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839AC2AF29AEA15F00B6A250 /* ShoppingCartViewController.storyboard */; };
 		839AC2B429AEA92C00B6A250 /* UINavigationController+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839AC2B329AEA92C00B6A250 /* UINavigationController+Configuration.swift */; };
+		83FF61CF29B0D05D00CD6FAF /* NetworkLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83FF61CE29B0D05D00CD6FAF /* NetworkLayer.framework */; };
+		83FF61D029B0D05D00CD6FAF /* NetworkLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83FF61CE29B0D05D00CD6FAF /* NetworkLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		83FF61D529B0D42E00CD6FAF /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF61D429B0D42E00CD6FAF /* MainPageViewModel.swift */; };
+		83FF61DA29B0D55900CD6FAF /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF61D929B0D55900CD6FAF /* Product.swift */; };
+		83FF61DC29B0EABC00CD6FAF /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF61DB29B0EABC00CD6FAF /* Double+String.swift */; };
+		83FF61DE29B0EAF400CD6FAF /* CurrenyCodeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF61DD29B0EAF400CD6FAF /* CurrenyCodeEnum.swift */; };
+		83FF61E129B0EBDE00CD6FAF /* UIImage+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FF61E029B0EBDE00CD6FAF /* UIImage+URL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,20 @@
 			remoteInfo = ShoppingApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		83FF61D129B0D05D00CD6FAF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				83FF61D029B0D05D00CD6FAF /* NetworkLayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6E1341B0280605060092B126 /* ShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +100,12 @@
 		839AC2AD29AEA10600B6A250 /* DetailPageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailPageViewController.storyboard; sourceTree = "<group>"; };
 		839AC2AF29AEA15F00B6A250 /* ShoppingCartViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ShoppingCartViewController.storyboard; sourceTree = "<group>"; };
 		839AC2B329AEA92C00B6A250 /* UINavigationController+Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Configuration.swift"; sourceTree = "<group>"; };
+		83FF61CE29B0D05D00CD6FAF /* NetworkLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = NetworkLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83FF61D429B0D42E00CD6FAF /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		83FF61D929B0D55900CD6FAF /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		83FF61DB29B0EABC00CD6FAF /* Double+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
+		83FF61DD29B0EAF400CD6FAF /* CurrenyCodeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenyCodeEnum.swift; sourceTree = "<group>"; };
+		83FF61E029B0EBDE00CD6FAF /* UIImage+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+URL.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83FF61CF29B0D05D00CD6FAF /* NetworkLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +141,7 @@
 				6E1341C9280605070092B126 /* ShoppingAppTests */,
 				6E1341D3280605070092B126 /* ShoppingAppUITests */,
 				6E1341B1280605060092B126 /* Products */,
+				83FF61CD29B0D05D00CD6FAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,10 +158,11 @@
 		6E1341B2280605060092B126 /* ShoppingApp */ = {
 			isa = PBXGroup;
 			children = (
+				839AC2A129AE8BA700B6A250 /* AppLifeCycle */,
 				839AC28B29AE332700B6A250 /* Application */,
 				837FC4D429AFD30E003A9EED /* Components */,
-				839AC2A129AE8BA700B6A250 /* AppLifeCycle */,
 				839AC28829AE32D000B6A250 /* Navigation */,
+				83FF61D629B0D48800CD6FAF /* NetworkModels */,
 				839AC29C29AE4BFD00B6A250 /* Utils */,
 				6E1341C1280605070092B126 /* Info.plist */,
 			);
@@ -208,6 +238,7 @@
 			children = (
 				6E1341B7280605060092B126 /* MainPageViewController.swift */,
 				839AC2AB29AE9FDB00B6A250 /* MainPageViewController.storyboard */,
+				83FF61D429B0D42E00CD6FAF /* MainPageViewModel.swift */,
 			);
 			path = MainPage;
 			sourceTree = "<group>";
@@ -234,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				6E1341BC280605070092B126 /* Assets.xcassets */,
+				83FF61DD29B0EAF400CD6FAF /* CurrenyCodeEnum.swift */,
 				839AC2B129AEA7F500B6A250 /* Builders */,
 				839AC2A429AE91B900B6A250 /* Extensions */,
 			);
@@ -252,10 +284,9 @@
 		839AC2A429AE91B900B6A250 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				83FF61DF29B0EB7200CD6FAF /* UI */,
 				837FC4D029AFC96D003A9EED /* NavigationController */,
-				839AC2A529AE91CF00B6A250 /* UIViewController+LoadNib.swift */,
-				839A9D2C29AFC25200D51D7C /* UIColor+AppColors.swift */,
-				837FC4DC29AFE3A5003A9EED /* UIFont+AppFont.swift */,
+				83FF61DB29B0EABC00CD6FAF /* Double+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,6 +307,33 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		83FF61CD29B0D05D00CD6FAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83FF61CE29B0D05D00CD6FAF /* NetworkLayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		83FF61D629B0D48800CD6FAF /* NetworkModels */ = {
+			isa = PBXGroup;
+			children = (
+				83FF61D929B0D55900CD6FAF /* Product.swift */,
+			);
+			path = NetworkModels;
+			sourceTree = "<group>";
+		};
+		83FF61DF29B0EB7200CD6FAF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				839AC2A529AE91CF00B6A250 /* UIViewController+LoadNib.swift */,
+				839A9D2C29AFC25200D51D7C /* UIColor+AppColors.swift */,
+				837FC4DC29AFE3A5003A9EED /* UIFont+AppFont.swift */,
+				83FF61E029B0EBDE00CD6FAF /* UIImage+URL.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -286,6 +344,7 @@
 				6E1341AC280605060092B126 /* Sources */,
 				6E1341AD280605060092B126 /* Frameworks */,
 				6E1341AE280605060092B126 /* Resources */,
+				83FF61D129B0D05D00CD6FAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -410,16 +469,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83FF61D529B0D42E00CD6FAF /* MainPageViewModel.swift in Sources */,
 				837FC4DA29AFE1CD003A9EED /* ProductsCollectionViewCell.swift in Sources */,
 				839AC29529AE379800B6A250 /* NavigationEnum.swift in Sources */,
 				839AC29129AE33D300B6A250 /* DetailPageViewController.swift in Sources */,
 				6E1341B8280605060092B126 /* MainPageViewController.swift in Sources */,
 				6E1341B4280605060092B126 /* AppDelegate.swift in Sources */,
 				839AC28A29AE32E000B6A250 /* NavigationRouter.swift in Sources */,
+				83FF61E129B0EBDE00CD6FAF /* UIImage+URL.swift in Sources */,
 				837FC4D629AFD32C003A9EED /* BaseViewController.swift in Sources */,
 				839A9D2D29AFC25200D51D7C /* UIColor+AppColors.swift in Sources */,
 				839AC2B429AEA92C00B6A250 /* UINavigationController+Configuration.swift in Sources */,
+				83FF61DE29B0EAF400CD6FAF /* CurrenyCodeEnum.swift in Sources */,
 				839AC2A929AE94D400B6A250 /* ShoppingCartViewController.swift in Sources */,
+				83FF61DC29B0EABC00CD6FAF /* Double+String.swift in Sources */,
+				83FF61DA29B0D55900CD6FAF /* Product.swift in Sources */,
 				6E1341B6280605060092B126 /* SceneDelegate.swift in Sources */,
 				839AC29E29AE4C1D00B6A250 /* ViewControllerBuilder.swift in Sources */,
 				837FC4DF29AFE684003A9EED /* ProductsCollectionCellViewModel.swift in Sources */,
@@ -523,7 +587,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -578,7 +642,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

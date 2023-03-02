@@ -8,6 +8,8 @@
 import UIKit
 
 class MainPageViewController: BaseViewController {
+    private let viewModel = MainPageViewModel()
+    
     @IBOutlet var productsCollectionView: UICollectionView! {
         didSet {
             productsCollectionView.delegate = self
@@ -27,8 +29,14 @@ class MainPageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
+        viewModel.fetchProductListArray { [weak self] productListArray in
+            guard let self = self else { return }
+            self.viewModel.productListArray = productListArray
+            
+            DispatchQueue.main.async {
+                self.productsCollectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -36,13 +44,14 @@ class MainPageViewController: BaseViewController {
 
 extension MainPageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
+        viewModel.productListArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCollectionViewCell.reuseIdentifier,
-                                                            for: indexPath) as! ProductsCollectionViewCell
-        cell.configureCell(with: .init(imagePath: "", productPrice: 0, productName: "Product"))
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCollectionViewCell.reuseIdentifier,
+                                                            for: indexPath) as? ProductsCollectionViewCell else { return UICollectionViewCell() }
+        let product = viewModel.productListArray[indexPath.row]
+        cell.configureCell(with: product)
         return cell
     }
 }
