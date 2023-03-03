@@ -8,9 +8,19 @@
 import UIKit
 
 class DetailPageViewController: BaseViewController {
-
+    private var viewModel: DetailPageViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .blue
+        viewModelConfigurator = self
+        
+    }
+}
+
+// MARK: - ViewModel Configurator
+extension DetailPageViewController: ViewModelConfigurator {
+    func viewModelInfo(model: BaseViewModel?) {
+        guard let viewModel = model as? DetailPageViewModel else { return }
+        self.viewModel = viewModel
     }
 }

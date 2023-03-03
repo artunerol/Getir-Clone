@@ -8,10 +8,16 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
+    var viewModelConfigurator: ViewModelConfigurator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationControllerUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     private func setCustomNavigationBar() {

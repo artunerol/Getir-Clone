@@ -10,9 +10,11 @@ import UIKit
 class NavigationRouter {
     static func navigate(fromViewController: UIViewController,
                          destinationViewController: NavigationEnum,
+                         destinationViewModel: BaseViewModel? = nil,
                          transitionStlye: TransitionStyle) {
+        guard let destinationVC = UIStoryboard(name: destinationViewController.rawValue, bundle: nil).instantiateViewController(withIdentifier: destinationViewController.rawValue) as? BaseViewController else { return }
         
-        let destinationVC = UIStoryboard(name: destinationViewController.rawValue, bundle: nil).instantiateViewController(withIdentifier: destinationViewController.rawValue)
+        destinationVC.viewModelConfigurator?.viewModelInfo(model: destinationViewModel)
         
         switch transitionStlye {
         case .modalFullScreen:

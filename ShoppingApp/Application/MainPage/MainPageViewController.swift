@@ -21,12 +21,6 @@ class MainPageViewController: BaseViewController {
         }
     }
     
-    @IBAction func buttonTapped(_ sender: Any) {
-        NavigationRouter.navigate(fromViewController: self,
-                                  destinationViewController: .detailPage,
-                                  transitionStlye: .fullScreenWithNavigation)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.fetchProductListArray { [weak self] productListArray in
@@ -53,6 +47,13 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
         let product = viewModel.productListArray[indexPath.row]
         cell.configureCell(with: product)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NavigationRouter.navigate(fromViewController: self,
+                                  destinationViewController: .detailPage,
+                                  destinationViewModel: DetailPageViewModel(data: "ModelData"),
+                                  transitionStlye: .fullScreenWithNavigation)
     }
 }
 
