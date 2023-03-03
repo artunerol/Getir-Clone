@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:">
+      location = "group:Modules/NetworkLayer/NetworkLayer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "container:ShoppingApp.xcodeproj">
    </FileRef>
 </Workspace>
