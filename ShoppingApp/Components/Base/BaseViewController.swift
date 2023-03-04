@@ -8,7 +8,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    var viewModelConfigurator: ViewModelConfigurator?
+    var dataSource: ViewControllerDataSource?
     
     override func viewDidLoad() {
         super.viewDidLoad()

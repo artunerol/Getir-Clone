@@ -14,7 +14,8 @@ class NavigationRouter {
                          transitionStlye: TransitionStyle) {
         guard let destinationVC = UIStoryboard(name: destinationViewController.rawValue, bundle: nil).instantiateViewController(withIdentifier: destinationViewController.rawValue) as? BaseViewController else { return }
         
-        destinationVC.viewModelConfigurator?.viewModelInfo(model: destinationViewModel)
+        destinationVC.dataSource = destinationVC as? ViewControllerDataSource
+        destinationVC.dataSource?.data(with: destinationViewModel)
         
         switch transitionStlye {
         case .modalFullScreen:

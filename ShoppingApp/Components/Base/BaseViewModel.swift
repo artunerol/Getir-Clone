@@ -7,8 +7,8 @@
 
 import Foundation
 
-protocol ViewModelConfigurator: AnyObject {
-    func viewModelInfo(model: BaseViewModel?)
+protocol ViewControllerDataSource: AnyObject {
+    func data(with model: BaseViewModel?)
 }
 
 class BaseViewModel {
