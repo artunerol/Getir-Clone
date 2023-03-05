@@ -50,9 +50,14 @@ extension MainPageViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let productAtIndexPath = Product(productName: viewModel.productListArray[indexPath.row].productName,
+                                         productDescription: viewModel.productListArray[indexPath.row].productDescription,
+                                         productPrice: viewModel.productListArray[indexPath.row].productPrice,
+                                         productImage: viewModel.productListArray[indexPath.row].productImage)
+        
         NavigationRouter.navigate(fromViewController: self,
                                   destinationViewController: .detailPage,
-                                  destinationViewModel: DetailPageViewModel(data: "ModelData"),
+                                  destinationViewModel: DetailPageViewModel(data: productAtIndexPath),
                                   transitionStlye: .fullScreenWithNavigation)
     }
 }

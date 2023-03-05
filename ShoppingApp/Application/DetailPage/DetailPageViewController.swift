@@ -10,11 +10,16 @@ import UIKit
 class DetailPageViewController: BaseViewController {
     
     @IBOutlet var scrollContainer: UIView!
+    
     private var viewModel: DetailPageViewModel?
     private let productDetailView: ProductDetailView =  UIView.fromNib()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    private func setupUI() {
         scrollContainer.addSubview(productDetailView)
     }
 }
@@ -23,6 +28,6 @@ class DetailPageViewController: BaseViewController {
 extension DetailPageViewController: ViewControllerDataSource {
     func data(with model: BaseViewModel?) {
         guard let viewModel = model as? DetailPageViewModel else { return }
-        self.viewModel = viewModel
+        productDetailView.configureView(product: viewModel.productData)
     }
 }

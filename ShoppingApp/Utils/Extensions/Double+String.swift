@@ -12,3 +12,9 @@ extension Double {
         return String(self)
     }
 }
+
+extension Double {
+    func toIntToString() -> String {
+    return String(Int(self))
+    }
+}

@@ -14,12 +14,14 @@ class NavigationRouter {
                          transitionStlye: TransitionStyle) {
         guard let destinationVC = UIStoryboard(name: destinationViewController.rawValue, bundle: nil).instantiateViewController(withIdentifier: destinationViewController.rawValue) as? BaseViewController else { return }
         
-        destinationVC.dataSource = destinationVC as? ViewControllerDataSource
-        destinationVC.dataSource?.data(with: destinationViewModel)
+        if destinationViewModel != nil {
+            destinationVC.dataSource = destinationVC as? ViewControllerDataSource
+            destinationVC.dataSource?.data(with: destinationViewModel)
+        }
         
         switch transitionStlye {
         case .modalFullScreen:
-            destinationVC.modalPresentationStyle = .fullScreen
+            destinationVC.modalPresentationStyle = .popover
             fromViewController.present(destinationVC, animated: true)
         case .fullScreenWithNavigation:
             fromViewController.navigationController?.pushViewController(destinationVC, animated: true)

@@ -8,9 +8,9 @@
 import Foundation
 
 class DetailPageViewModel: BaseViewModel {
-    let data: String
+    let productData: Product
     
-    init(data: String) {
-        self.data = data
+    init(data: Product) {
+        self.productData = data
     }
 }

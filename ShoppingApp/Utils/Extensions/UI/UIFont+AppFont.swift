@@ -10,5 +10,7 @@ import UIKit
 extension UIFont {
     static let appRegularFont = UIFont(name: "HelveticaNeue", size: 12)
     static let appRegularBoldFont = UIFont(name: "HelveticaNeue-Bold", size: 14)
+    static let appHeaderBold = UIFont(name: "HelveticaNeue-Bold", size: 22)
+    static let appRegularBigFont = UIFont(name: "HelveticaNeue", size: 16)
 }
 

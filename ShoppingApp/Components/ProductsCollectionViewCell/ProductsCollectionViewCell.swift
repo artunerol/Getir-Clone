@@ -43,11 +43,11 @@ class ProductsCollectionViewCell: UICollectionViewCell {
     }
     
     func configureCell(with model: Product) {
-        let imageURLString = model.productImage + "?raw=true"
+        let imageURLString = (model.productImage ?? "") + "?raw=true"
         let imageURL = URL(string: imageURLString)
         
         productImageView.image(from: imageURL)
-        productPriceLabel.text = "\(model.productPrice.toString()) \(CurrenyCodeEnum.tl.unitCode())"
+        productPriceLabel.text = "\((model.productPrice ?? 0).toString())  \(CurrenyCodeEnum.tl.unitCode())"
         productNameLabel.text = model.productName
     }
 }
