@@ -54,7 +54,7 @@ class MainPageViewController: BaseViewController {
 
 extension MainPageViewController {
     private func configureAlert() {
-        let alertViewController = UIAlertController(title: "Warning",
+        let alertViewController = UIAlertController(title: "Oops!",
                                                     message: "Shopping Cart is Empty",
                                                     preferredStyle: .alert)
         alertViewController.addAction(UIAlertAction(title: "Ok", style: .cancel))
