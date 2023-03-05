@@ -12,5 +12,5 @@ protocol ViewControllerDataSource: AnyObject {
 }
 
 class BaseViewModel {
-    
+    init() { /* Empty Init */ }
 }

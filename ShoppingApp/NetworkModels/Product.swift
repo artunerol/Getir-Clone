@@ -9,7 +9,7 @@ import Foundation
 
 typealias ProductList = [Product]
 
-struct Product: Codable {
+struct Product: Codable, Hashable {
     let productName: String?
     let productDescription: String?
     let productPrice: Double?

@@ -23,6 +23,7 @@ class MainPageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setCartNavigationButton()
         viewModel.fetchProductListArray { [weak self] productListArray in
             guard let self = self else { return }
             self.viewModel.productListArray = productListArray
@@ -31,6 +32,34 @@ class MainPageViewController: BaseViewController {
                 self.productsCollectionView.reloadData()
             }
         }
+    }
+    
+    private func setCartNavigationButton() {
+        let cartImage = UIImage(named: "cart")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: cartImage, style: .plain, target: self, action: #selector(cartButtonPressed))
+    }
+    
+    @objc private func cartButtonPressed() {
+        let productsInCart = UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart)
+        
+        if productsInCart != nil && !(productsInCart?.isEmpty ?? false) {
+            NavigationRouter.navigate(fromViewController: self, destinationViewController: .shoppingCart, transitionStlye: .fullScreenWithNavigation)
+        } else {
+            configureAlert()
+        }
+    }
+}
+
+// MARK: - Helpers
+
+extension MainPageViewController {
+    private func configureAlert() {
+        let alertViewController = UIAlertController(title: "Warning",
+                                                    message: "Shopping Cart is Empty",
+                                                    preferredStyle: .alert)
+        alertViewController.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        
+        self.present(alertViewController, animated: true)
     }
 }
 

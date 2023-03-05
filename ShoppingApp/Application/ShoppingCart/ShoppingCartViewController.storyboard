@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,16 +15,63 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bks-Fe-tWh" userLabel="ContainerView">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZV2-ew-GOC">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="685"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kwp-qz-JUW">
+                                        <rect key="frame" x="111.66666666666669" y="693" width="170" height="50"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="DqD-aT-Od4"/>
+                                            <constraint firstAttribute="height" constant="50" id="aIB-5z-Ljk"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Checkout"/>
+                                        <connections>
+                                            <action selector="checkoutButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="UQo-a3-AX5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZV2-ew-GOC" secondAttribute="trailing" id="RW1-ed-k15"/>
+                                    <constraint firstItem="ZV2-ew-GOC" firstAttribute="top" secondItem="Bks-Fe-tWh" secondAttribute="top" id="Ud2-Sl-Be1"/>
+                                    <constraint firstItem="Kwp-qz-JUW" firstAttribute="centerX" secondItem="Bks-Fe-tWh" secondAttribute="centerX" id="Xo9-6h-Z6j"/>
+                                    <constraint firstItem="Kwp-qz-JUW" firstAttribute="top" secondItem="ZV2-ew-GOC" secondAttribute="bottom" constant="8" id="kbL-Ci-Z5C"/>
+                                    <constraint firstItem="ZV2-ew-GOC" firstAttribute="leading" secondItem="Bks-Fe-tWh" secondAttribute="leading" id="mLK-Kc-JWJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kwp-qz-JUW" secondAttribute="bottom" constant="16" id="sBh-iM-Uvr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Bks-Fe-tWh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="1fm-6c-oJc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Bks-Fe-tWh" secondAttribute="bottom" id="aq3-qU-jHc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Bks-Fe-tWh" secondAttribute="trailing" id="ofz-a6-vrI"/>
+                            <constraint firstItem="Bks-Fe-tWh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tFh-Zn-wct"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="checkoutButtonOutlet" destination="Kwp-qz-JUW" id="6Yg-J4-FL8"/>
+                        <outlet property="productsTableView" destination="ZV2-ew-GOC" id="IkJ-vh-eRR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="5"/>
+            <point key="canvasLocation" x="139.69465648854961" y="4.9295774647887329"/>
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

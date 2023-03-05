@@ -15,7 +15,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBt-4j-Pce">
-                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGg-OS-efR">
                             <rect key="frame" x="16" y="16" width="361" height="158"/>
@@ -43,19 +43,19 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaP-Gt-U42">
-                            <rect key="frame" x="16" y="242.66666666666669" width="361" height="20.333333333333314"/>
+                            <rect key="frame" x="16" y="242.66666666666666" width="361" height="20.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="7fy-YM-Xae">
-                            <rect key="frame" x="110" y="613" width="94" height="32"/>
+                            <rect key="frame" x="110" y="706" width="94" height="32"/>
                             <connections>
                                 <action selector="stepperValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="Ayu-Ui-Fqg"/>
                             </connections>
                         </stepper>
                         <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BaM-gE-nmW">
-                            <rect key="frame" x="111.66666666666669" y="669" width="170" height="50"/>
+                            <rect key="frame" x="111.66666666666669" y="762" width="170" height="50"/>
                             <color key="backgroundColor" systemColor="linkColor"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="SjB-oD-jkJ"/>
@@ -70,7 +70,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WEN-Lk-poe">
-                            <rect key="frame" x="228" y="619" width="10.333333333333343" height="20.333333333333371"/>
+                            <rect key="frame" x="228" y="712" width="10.333333333333343" height="20.333333333333371"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

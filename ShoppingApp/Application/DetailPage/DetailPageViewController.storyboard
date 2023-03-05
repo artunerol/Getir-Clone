@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QAG-gw-dQm" userLabel="ScrollContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="850"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
@@ -30,7 +30,7 @@
                                     <constraint firstItem="QAG-gw-dQm" firstAttribute="bottom" secondItem="kG5-Cd-U2X" secondAttribute="bottom" id="Uo1-ep-KYn"/>
                                     <constraint firstItem="QAG-gw-dQm" firstAttribute="trailing" secondItem="kG5-Cd-U2X" secondAttribute="trailing" id="nxM-Ne-tNQ"/>
                                     <constraint firstItem="QAG-gw-dQm" firstAttribute="leading" secondItem="kG5-Cd-U2X" secondAttribute="leading" id="tUf-z0-0Sb"/>
-                                    <constraint firstItem="QAG-gw-dQm" firstAttribute="height" secondItem="kG5-Cd-U2X" secondAttribute="height" multiplier="1.11989" id="yMC-Xq-vPg"/>
+                                    <constraint firstItem="QAG-gw-dQm" firstAttribute="height" secondItem="kG5-Cd-U2X" secondAttribute="height" id="yMC-Xq-vPg"/>
                                 </constraints>
                             </scrollView>
                         </subviews>

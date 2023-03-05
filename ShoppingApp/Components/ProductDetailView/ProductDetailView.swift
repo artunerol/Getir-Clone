@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol ProductDetailViewDelegate: AnyObject {
+    func cartUpdated()
+}
+
 class ProductDetailView: UIView {
+    var delegate: ProductDetailViewDelegate?
     
     private var product: Product?
     private var productCountValue: Int = 0
@@ -45,28 +50,37 @@ class ProductDetailView: UIView {
             updateCartButton.layer.cornerRadius = 8
             updateCartButton.layer.masksToBounds = true
             updateCartButton.clipsToBounds = true
-            updateCartButton.isEnabled = false
         }
     }
     
     @IBAction func updateCartButtonPressed(_ sender: Any) {
-        if var productsInCart = UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart) {
-            for _ in 1...productCountValue {
-                productsInCart.append(product ?? Product())
+        var emptyProductsCart: [Product] = []
+        
+        if productCountValue > 0 {
+            if var productsInCart = UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart) {
+                
+                productsInCart.removeAll(where: {$0 == product})
+                for _ in 1...productCountValue {
+                    productsInCart.append(product ?? Product())
+                }
+                UserdefaultsStore.set(value: productsInCart, key: UserDefaultsKeys.productsInCart)
+            } else {
+                for _ in 1...productCountValue {
+                    emptyProductsCart.append(product ?? Product())
+                    UserdefaultsStore.set(value: emptyProductsCart, key: UserDefaultsKeys.productsInCart)
+                }
             }
-            UserdefaultsStore.set(value: productsInCart, key: UserDefaultsKeys.productsInCart)
         } else {
-            for _ in 1...productCountValue {
-                var emptyProductsCart: [Product] = []
-                emptyProductsCart.append(product ?? Product())
-                UserdefaultsStore.set(value: emptyProductsCart, key: UserDefaultsKeys.productsInCart)
+            if var productsInCart = UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart) {
+                productsInCart.removeAll(where: {$0 == product})
+                UserdefaultsStore.set(value: productsInCart, key: UserDefaultsKeys.productsInCart)
             }
         }
+        
+        delegate?.cartUpdated()
     }
     
     @IBAction func stepperValueChanged(_ sender: Any) {
-        updateCartButton.isEnabled = stepper.value > 0
-        
         productCountLabel.text = stepper.value.toIntToString()
         productCountValue = Int(stepper.value)
     }
@@ -77,7 +91,6 @@ class ProductDetailView: UIView {
 
 extension ProductDetailView {
     func configureView(product: Product) {
-//        UserDefaults.standard.removeObject(forKey: UserDefaultsKeys.productsInCart)
         self.product = product
         let productImageURLString = (product.productImage ?? "") + "?raw=true"
         let productImageURL = URL(string: productImageURLString)

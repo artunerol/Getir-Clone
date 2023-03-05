@@ -16,15 +16,25 @@ class DetailPageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        productDetailView.delegate = self
         setupUI()
     }
     
     private func setupUI() {
+        productDetailView.frame = CGRect(x: 0, y: 0, width: scrollContainer.frame.width, height: scrollContainer.frame.height)
         scrollContainer.addSubview(productDetailView)
     }
 }
 
-// MARK: - ViewModel Configurator
+// MARK: - ProductDetia Delegate
+
+extension DetailPageViewController: ProductDetailViewDelegate {
+    func cartUpdated() {
+        navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+// MARK: - ViewController Data Source
 extension DetailPageViewController: ViewControllerDataSource {
     func data(with model: BaseViewModel?) {
         guard let viewModel = model as? DetailPageViewModel else { return }
