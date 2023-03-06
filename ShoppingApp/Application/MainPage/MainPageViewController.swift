@@ -113,17 +113,3 @@ extension MainPageViewController: UICollectionViewDelegateFlowLayout {
         return 16
     }
 }
-
-// MARK: - CartView Delegate
-
-extension MainPageViewController: ShoppingCartItemDelegate {
-    func cartTapped() {
-        let productsInCart = UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart)
-        
-        if productsInCart != nil && !(productsInCart?.isEmpty ?? false) {
-            NavigationRouter.navigate(fromViewController: self, destinationViewController: .shoppingCart, transitionStlye: .fullScreenWithNavigation)
-        } else {
-            configureAlert()
-        }
-    }
-}
