@@ -55,7 +55,7 @@ extension ShoppingCartViewController: UITableViewDelegate, UITableViewDataSource
 extension ShoppingCartViewController {
     private func showAlert() {
         let alertViewController = UIAlertController(title: "Success",
-                                                    message: "Checkout Completed",
+                                                    message: "Checkout Completed with \(viewModel.products.count) products.",
                                                     preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "Ok",
                                         style: .cancel) { [weak self] _ in

@@ -23,7 +23,6 @@ class MainPageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCartNavigationButton()
         viewModel.fetchProductListArray { [weak self] productListArray in
             guard let self = self else { return }
             self.viewModel.productListArray = productListArray
@@ -34,12 +33,19 @@ class MainPageViewController: BaseViewController {
         }
     }
     
-    private func setCartNavigationButton() {
-        let cartImage = UIImage(named: "cart")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: cartImage, style: .plain, target: self, action: #selector(cartButtonPressed))
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setCartNavigationButton()
     }
     
-    @objc private func cartButtonPressed() {
+    private func setCartNavigationButton() {
+        let customCartButton: ShoppingCartNavigationButton = UIView.fromNib()
+        customCartButton.configureUI()
+        customCartButton.addTarget(self, action: #selector(cartButtonTapped), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: customCartButton)
+    }
+    
+    @objc private func cartButtonTapped() {
         let productsInCart = UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart)
         
         if productsInCart != nil && !(productsInCart?.isEmpty ?? false) {
@@ -105,5 +111,19 @@ extension MainPageViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
+    }
+}
+
+// MARK: - CartView Delegate
+
+extension MainPageViewController: ShoppingCartItemDelegate {
+    func cartTapped() {
+        let productsInCart = UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart)
+        
+        if productsInCart != nil && !(productsInCart?.isEmpty ?? false) {
+            NavigationRouter.navigate(fromViewController: self, destinationViewController: .shoppingCart, transitionStlye: .fullScreenWithNavigation)
+        } else {
+            configureAlert()
+        }
     }
 }

@@ -20,9 +20,9 @@ class ShoppingCartViewModel {
     }
     
     private func getCountOfProduct() {
-        products.map { product in
-            let productCount = products.filter { $0.productName == product.productName }.count
-            let productCountPair = [product : productCount]
+        for product in products {
+            let productCountInCart = products.filter { $0.productName == product.productName }.count
+            let productCountPair = [product : productCountInCart]
             
             if !productCountPairArray.contains(productCountPair) {
                 productCountPairArray.append(productCountPair)
