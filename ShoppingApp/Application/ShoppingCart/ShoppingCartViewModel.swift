@@ -29,9 +29,4 @@ class ShoppingCartViewModel {
             }
         }
     }
-    
-    private func makeProductsUnique() {
-        let uniqueProducts = Set(UserdefaultsStore.get(type: [Product].self, key: UserDefaultsKeys.productsInCart) ?? [])
-        products = Array(uniqueProducts)
-    }
 }
